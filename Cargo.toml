@@ -1,0 +1,21 @@
+[package]
+name = "zed_coffeescript"
+version = "0.0.1"
+edition = "2021"
+publish = false
+license = "MIT"
+
+[lib]
+path = "src/coffeescript.rs"
+crate-type = ["cdylib"]
+
+[dependencies]
+zed_extension_api = "0.5.0"
+
+# Optimize for size
+[profile.release]
+opt-level = "z"     # Optimize for size
+lto = true          # Link-time optimization
+codegen-units = 1   # Better optimization
+panic = "abort"     # Smaller binaries
+strip = true        # Remove debug symbols

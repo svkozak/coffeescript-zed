@@ -1,0 +1,48 @@
+#!/usr/bin/env bash
+set -euo pipefail
+
+# Launch CoffeeSense language server preferring a workspace-local install.
+# Order of resolution:
+# 1) COFFEESENSE_EXECUTABLE env var (absolute or relative path)
+# 2) ./node_modules/.bin/coffeesense-language-server
+# 3) coffeesense-language-server on PATH (global)
+# 4) npx coffeesense-language-server (as a last-resort fallback)
+
+resolve_local_bin() {
+  local rel="./node_modules/.bin/coffeesense-language-server"
+  if [ -x "$rel" ]; then
+    echo "$rel"
+    return 0
+  fi
+  if [ -f "$rel" ]; then
+    chmod +x "$rel" 2>/dev/null || true
+    if [ -x "$rel" ]; then
+      echo "$rel"
+      return 0
+    fi
+  fi
+  return 1
+}
+
+if [ -n "${COFFEESENSE_EXECUTABLE:-}" ]; then
+  exec "${COFFEESENSE_EXECUTABLE}" --stdio
+fi
+
+if exe=$(resolve_local_bin); then
+  exec "$exe" --stdio
+fi
+
+if command -v coffeesense-language-server >/dev/null 2>&1; then
+  exec coffeesense-language-server --stdio
+fi
+
+# Final fallback: npx (may be slower and require network on first use)
+if command -v npx >/dev/null 2>&1; then
+  exec npx --yes coffeesense-language-server --stdio
+fi
+
+echo "CoffeeSense language server not found. Install as a devDependency:"
+echo "  npm i -D coffeesense-language-server"
+echo "or set COFFEESENSE_EXECUTABLE to the server path."
+exit 127
+

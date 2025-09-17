@@ -1,0 +1,13 @@
+name = "CoffeeScript"
+path_suffixes = ["coffee"]
+line_comments = ["# ", "#"]
+grammar = "coffeescript"
+language_servers = ["coffeesense"]
+roots = [
+  "package.json",
+  "yarn.lock",
+  "pnpm-lock.yaml",
+  "package-lock.json",
+  "node_modules",
+  ".git",
+]
