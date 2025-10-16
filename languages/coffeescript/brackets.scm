@@ -1,4 +1,5 @@
-; CoffeeScript bracket pairs (only tokens that exist in the grammar)
+; CoffeeScript bracket pairs (all tokens from the grammar)
 ("(" @open ")" @close)
 ("[" @open "]" @close)
 ("{" @open "}" @close)
+("<" @open ">" @close)
