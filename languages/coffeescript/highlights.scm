@@ -140,6 +140,12 @@
   (identifier) @function.method
   ":" @operator)
 
+(function_definition
+  (ERROR
+    (identifier) @function.method
+    ":" @operator)
+  ["->" "=>"] @operator)
+
 ; Break and continue statements
 (break_statement) @keyword.control
 (continue_statement) @keyword.control

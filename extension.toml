@@ -8,7 +8,7 @@ repository = "https://github.com/svkozak/coffeescript-zed"
 
 [grammars.coffeescript]
 repository = "file:///Users/admin/Dev/zed/tree-sitter-coffeescript"
-rev = "407fe3b0fef2243007045a304e851af2e6bd9111"
+rev = "0c7ae1030a369b3a00b269e61130eaa52d9ee99b"
 
 [language_servers.coffeesense]
 name = "CoffeeSense"

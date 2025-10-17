@@ -1,6 +1,10 @@
 # Rust compilation artifacts
 /target/
 
+# Zed grammar cache
+/grammars/*
+/grammars/**/*
+
 # Node.js artifacts (for language server)
 node_modules/
 package-lock.json
@@ -24,3 +28,4 @@ Thumbs.db
 AGENTS.md
 
 test.coffee
+grammars/coffeescript.wasm
