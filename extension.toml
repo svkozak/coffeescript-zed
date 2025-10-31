@@ -1,5 +1,5 @@
 id = "coffeescript-zed"
-name = "Coffeescript"
+name = "CoffeeScript"
 version = "0.0.1"
 schema_version = 1
 authors = ["Sergii Kozak <svkozak@gmail.com>"]
@@ -7,11 +7,11 @@ description = "Coffeescript language server"
 repository = "https://github.com/svkozak/coffeescript-zed"
 
 [grammars.coffeescript]
-repository = "file:///Users/admin/Dev/zed/tree-sitter-coffeescript"
-rev = "22d96c42c0ca79d3ef15aac968673c97f780a51d"
+repository = "file:///Users/T950974/Dev/learning/tree-sitter-coffeescript"
+rev = "7f6d4587af1b8d67053b1d74d3f32a040c0cdcda"
 
 [language_servers.coffeesense]
 name = "CoffeeSense"
 languages = ["CoffeeScript"]
-command = "coffeesense-language-server"
-args = ["--stdio"]
+command = "npx"
+args = ["-y", "coffeesense-language-server@latest", "--stdio"]
