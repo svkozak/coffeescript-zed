@@ -7,8 +7,8 @@ description = "Coffeescript language server"
 repository = "https://github.com/svkozak/coffeescript-zed"
 
 [grammars.coffeescript]
-repository = "file:///Users/T950974/Dev/learning/tree-sitter-coffeescript"
-rev = "7f6d4587af1b8d67053b1d74d3f32a040c0cdcda"
+repository = "file:////Users/admin/Dev/zed/tree-sitter-coffeescript"
+rev = "b1dbaad94567dd4d321ac8fe53b556f2a1f3a87f"
 
 [language_servers.coffeesense]
 name = "CoffeeSense"

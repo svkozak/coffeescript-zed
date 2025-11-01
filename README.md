@@ -1,6 +1,7 @@
 ## CoffeeScript for Zed
 
 A lightweight Zed extension that adds CoffeeScript support:
+
 - Syntax highlighting via a Tree‑sitter CoffeeScript grammar
 - LSP features (completion, hover, diagnostics, etc.) via CoffeeSense
 
@@ -16,7 +17,7 @@ This extension runs CoffeeSense through `npx` so contributors don’t need a glo
 
 Configured in `extension.toml`:
 
-```
+```toml
 [language_servers.coffeesense]
 name = "CoffeeSense"
 languages = ["CoffeeScript"]
@@ -25,11 +26,13 @@ args = ["-y", "coffeesense-language-server@latest", "--stdio"]
 ```
 
 #### Notes:
+
 - `-y` accepts prompts; first run may download the package.
 - You can pin a version for stability, e.g. `"coffeesense-language-server@1.x"`.
 - If `npx` is not on Zed’s PATH, set `command = "/usr/bin/env"` and `args = ["npx", ...]`.
 
 ### Grammar
+
 The grammar is defined in `extension.toml` under `[grammars.coffeescript]`.
 It requires a Tree-sitter CoffeeScript grammar repository `tree-sitter-coffeescript`.
 
@@ -52,11 +55,13 @@ rev = "<pinned commit>"
 ```
 
 ### Developing / Installing Locally
+
 - Open Zed and use the command palette: “Extensions: Install Dev Extension”. Choose `coffeescript-zed` folder and Zed will build and load the extension from source.
 - Or build manually with Rust (Zed will still handle loading the built artifact when installing the dev extension):
   - `cargo build --release`
 
 ### Troubleshooting
+
 - CoffeeSense doesn’t start: ensure `npx` is on PATH for Zed. Try setting `command = "/usr/bin/env"` and `args = ["npx", ...]` as noted above.
 - First-run is slow: `npx` may download CoffeeSense on first use; subsequent runs are cached.
 - Grammar not loading on another machine: point `[grammars.coffeescript]` to a public repo/commit, or vendor the precompiled `coffeescript.wasm` as described.
