@@ -34,7 +34,7 @@ args = ["-y", "coffeesense-language-server@latest", "--stdio"]
 ### Grammar
 
 The grammar is defined in `extension.toml` under `[grammars.coffeescript]`.
-It requires a Tree-sitter CoffeeScript grammar repository `tree-sitter-coffeescript`.
+It requires a Tree-sitter CoffeeScript grammar repository [`tree-sitter-coffeescript`](https://github.com/svkozak/tree-sitter-coffeescript).
 
 To have syntax highlighting and parsing work you need to clone the grammar locally or point to a public repo. Currently it points to a local checkout path.
 
